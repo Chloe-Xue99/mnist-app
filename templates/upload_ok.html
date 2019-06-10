@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Picture Upload</title>
+</head>
+
+<body>
+    <h1>Local pictures upload & display</h1>
+    <form action="" enctype='multipart/form-data' method='POST'>
+        <input type="file" name="file" style="margin-top:20px;" />
+        <br>
+        <i>Please type in the number you expect to get:</i>
+        <input type="text" class="txt_input" name="name" value=" " style="margin-top:10px;" />
+        <input type="submit" value="upload" class="button-new" style="margin-top:15px;" />
+    </form>
+    <h1>Your expected number is：{{userinput}}！</h1>
+    <img src="{{ url_for('static', filename= './images/test.jpg',_t=val1) }}" width="400" height="400"
+        alt="Your picture is gone :(" />
+</body>
+
+</html>
