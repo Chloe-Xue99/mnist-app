@@ -16,23 +16,6 @@ def resize(input):
     return tva
 
 
-# def imageprepare():
-#     # 读取的图片所在路径，注意是28*28像素
-#     im = Image.open('../mnist-app/static/images/2i.png')
-#     # plt.imshow(im)  # 显示需要识别的图片
-#     # plt.show()
-#     im = im.convert('L')
-#     tv = list(im.getdata())
-#     tva = [(255-x)*1.0/255.0 for x in tv]
-#     return tva
-
-
-# result = imageprepare()
-
-
-result = resize('../mnist-app/static/images/2i.png')
-
-
 FLAGS = None
 
 
@@ -120,7 +103,7 @@ def bias_variable(shape):
     return tf.Variable(initial)
 
 
-def main():
+def predict(result):
 
     # Create the model
     x = tf.placeholder(tf.float32, [None, 784])
@@ -152,10 +135,13 @@ def main():
         prediction = tf.argmax(y_conv, 1)
         predint = prediction.eval(
             feed_dict={x: [result], keep_prob: 1.0}, session=sess)
+        prediction1 = predint[0]
 
-        print('recognize result:')
-        print(predint[0])
+        print('recognized result:')
+        print(prediction1)
+
+    return prediction1
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     predict(result=resize('../mnist-app/static/images/test.jpg'))
