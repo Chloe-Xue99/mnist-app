@@ -1,3 +1,4 @@
+
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
@@ -141,7 +142,3 @@ def predict(result):
         print(prediction1)
 
     return prediction1
-
-
-# if __name__ == '__main__':
-#     predict(result=resize('../mnist-app/static/images/test.jpg'))
